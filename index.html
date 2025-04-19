@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accès protégé</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    #container {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 1rem;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 90%;
+    }
+
+    input[type="password"] {
+      padding: 0.5rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    #secret {
+      margin-top: 2rem;
+      display: none;
+    }
+
+    #secret img {
+      max-width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Entrez le mot de passe</h2>
+    <input type="password" id="password" placeholder="Mot de passe">
+    <br>
+    <button onclick="checkPassword()">Valider</button>
+
+    <div id="secret">
+      <h3>🎉 Accès autorisé !</h3>
+      <img src="chemin/vers/ton-image.jpg" alt="Contenu protégé">
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correctPassword = "monsecret"; // <-- modifie ici le mot de passe
+      const userPassword = document.getElementById("password").value;
+      const secret = document.getElementById("secret");
+
+      if (userPassword === correctPassword) {
+        secret.style.display = "block";
+      } else {
+        alert("Mot de passe incorrect !");
+      }
+    }
+  </script>
+</body>
+</html>
